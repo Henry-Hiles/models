@@ -1,0 +1,15 @@
+{
+    "name": "@quados/models",
+    "version": "1.0.0",
+    "author": "Henry Hiles",
+    "license": "GPL-3.0-only",
+    "exports": {
+        ".": [
+            "./config.ts",
+            "./config.ts"
+        ]
+    },
+    "dependencies": {
+        "dataclass": "^2.1.1"
+    }
+}

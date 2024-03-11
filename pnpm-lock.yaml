@@ -1,0 +1,16 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  dataclass:
+    specifier: ^2.1.1
+    version: 2.1.1
+
+packages:
+
+  /dataclass@2.1.1:
+    resolution: {integrity: sha512-UNG2qao2GaHrnVQtarekOjUt1BvU6vt1OUnYSp+3BuFNs+iKjiBmIz2cabXtP2ZjthM8n3ox1lRKrUxp4SKG9A==}
+    dev: false
