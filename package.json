@@ -1,7 +1,6 @@
 {
     "name": "@quados/models",
     "version": "1.0.0",
-    "main": "index.ts",
     "author": "Henry Hiles",
     "license": "GPL-3.0-only",
     "dependencies": {

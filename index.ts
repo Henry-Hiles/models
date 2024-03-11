@@ -1,2 +1,2 @@
-export { Config } from "./config.ts"
-export { Package } from "./package.ts"
+export { Config } from "./config"
+export { Package } from "./package"
