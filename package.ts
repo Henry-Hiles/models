@@ -5,7 +5,7 @@ export class Package extends Data {
     name: string
     commit: string
     origin: string
-    config: Record<string, string>
+    config: Record<string, string> = {}
 
     withCommit(commit: string): Package {
         // @ts-expect-error
