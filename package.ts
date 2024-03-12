@@ -12,8 +12,13 @@ export class Package extends Data {
         return this.copy({ commit: commit })
     }
 
-    withConfig(config: Record<string, string>): Package {
+    withConfig(config: Record<string, any>): Package {
         // @ts-expect-error
-        return this.copy({ config: config })
+        return this.copy({
+            config: Object.keys(config).reduce((result, key) => {
+                result[key] = JSON.stringify(config[key])
+                return result
+            }, {} as Record<string, string>),
+        })
     }
 }
