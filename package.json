@@ -4,6 +4,7 @@
     "author": "Henry Hiles",
     "license": "GPL-3.0-only",
     "dependencies": {
+        "@types/node": "^20.11.26",
         "dataclass": "^2.1.1"
     }
 }
