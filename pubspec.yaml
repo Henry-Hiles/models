@@ -2,6 +2,7 @@ name: models
 description: Models for QuadOS internals
 version: 1.0.0
 repository: https://github.com/Quad-Linux/models
+publish_to: none
 
 environment:
     sdk: ^3.4.2
