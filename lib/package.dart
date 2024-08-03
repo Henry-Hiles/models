@@ -10,7 +10,7 @@ class Package with _$Package {
     required String name,
     required String commit,
     required String origin,
-    required PackageConfig config,
+    PackageConfig? config,
   }) = _Package;
 
   Package withCommit(String commit) => copyWith(commit: commit);
