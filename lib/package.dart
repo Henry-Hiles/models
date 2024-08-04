@@ -18,5 +18,5 @@ class Package with _$Package {
 
   @override
   String toString() =>
-      'Package(id: "$id", name: "$name", commit: "$commit", origin: "$origin")';
+      'Package(id:"$id",name:"$name",commit:"$commit",origin:"$origin")';
 }
