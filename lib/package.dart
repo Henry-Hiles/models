@@ -14,8 +14,7 @@ class Package with _$Package {
   }) = _Package;
 
   Package withCommit(String commit) => copyWith(commit: commit);
-
-  Package withConfig(String commit) => copyWith(commit: commit);
+  Package withConfig(String commit) => copyWith(commit: commit); // TODO
 
   @override
   String toString() =>
