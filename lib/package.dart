@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/package_config.dart';
 part 'package.freezed.dart';
+part 'package.g.dart';
 
 @freezed
 class Package with _$Package {
@@ -19,4 +20,7 @@ class Package with _$Package {
   @override
   String toString() =>
       'Package(id:"$id",name:"$name",commit:"$commit",origin:"$origin")';
+
+  factory Package.fromJson(Map<String, Object?> json) =>
+      _$PackageFromJson(json);
 }

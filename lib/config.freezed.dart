@@ -14,9 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+Config _$ConfigFromJson(Map<String, dynamic> json) {
+  return _Config.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Config {
   List<Package> get pkgs => throw _privateConstructorUsedError;
+
+  /// Serializes this Config to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of Config
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +100,14 @@ class __$$ConfigImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
+@JsonSerializable()
+class _$ConfigImpl extends _Config {
+  const _$ConfigImpl({required final List<Package> pkgs})
+      : _pkgs = pkgs,
+        super._();
 
-class _$ConfigImpl implements _Config {
-  const _$ConfigImpl({required final List<Package> pkgs}) : _pkgs = pkgs;
+  factory _$ConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConfigImplFromJson(json);
 
   final List<Package> _pkgs;
   @override
@@ -106,11 +118,6 @@ class _$ConfigImpl implements _Config {
   }
 
   @override
-  String toString() {
-    return 'Config(pkgs: $pkgs)';
-  }
-
-  @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
@@ -118,6 +125,7 @@ class _$ConfigImpl implements _Config {
             const DeepCollectionEquality().equals(other._pkgs, _pkgs));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_pkgs));
@@ -129,10 +137,20 @@ class _$ConfigImpl implements _Config {
   @pragma('vm:prefer-inline')
   _$$ConfigImplCopyWith<_$ConfigImpl> get copyWith =>
       __$$ConfigImplCopyWithImpl<_$ConfigImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ConfigImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _Config implements Config {
+abstract class _Config extends Config {
   const factory _Config({required final List<Package> pkgs}) = _$ConfigImpl;
+  const _Config._() : super._();
+
+  factory _Config.fromJson(Map<String, dynamic> json) = _$ConfigImpl.fromJson;
 
   @override
   List<Package> get pkgs;

@@ -14,10 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+PackageConfig _$PackageConfigFromJson(Map<String, dynamic> json) {
+  return _PackageConfig.fromJson(json);
+}
+
 /// @nodoc
 mixin _$PackageConfig {
   Map<String, Symlink> get symlinks => throw _privateConstructorUsedError;
   Map<String, String> get files => throw _privateConstructorUsedError;
+
+  /// Serializes this PackageConfig to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of PackageConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -107,13 +114,16 @@ class __$$PackageConfigImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$PackageConfigImpl implements _PackageConfig {
   const _$PackageConfigImpl(
       {required final Map<String, Symlink> symlinks,
       required final Map<String, String> files})
       : _symlinks = symlinks,
         _files = files;
+
+  factory _$PackageConfigImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PackageConfigImplFromJson(json);
 
   final Map<String, Symlink> _symlinks;
   @override
@@ -145,6 +155,7 @@ class _$PackageConfigImpl implements _PackageConfig {
             const DeepCollectionEquality().equals(other._files, _files));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -158,12 +169,22 @@ class _$PackageConfigImpl implements _PackageConfig {
   @pragma('vm:prefer-inline')
   _$$PackageConfigImplCopyWith<_$PackageConfigImpl> get copyWith =>
       __$$PackageConfigImplCopyWithImpl<_$PackageConfigImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PackageConfigImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _PackageConfig implements PackageConfig {
   const factory _PackageConfig(
       {required final Map<String, Symlink> symlinks,
       required final Map<String, String> files}) = _$PackageConfigImpl;
+
+  factory _PackageConfig.fromJson(Map<String, dynamic> json) =
+      _$PackageConfigImpl.fromJson;
 
   @override
   Map<String, Symlink> get symlinks;

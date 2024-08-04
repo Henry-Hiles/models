@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+Package _$PackageFromJson(Map<String, dynamic> json) {
+  return _Package.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Package {
   String get id => throw _privateConstructorUsedError;
@@ -21,6 +25,9 @@ mixin _$Package {
   String get commit => throw _privateConstructorUsedError;
   String get origin => throw _privateConstructorUsedError;
   PackageConfig? get config => throw _privateConstructorUsedError;
+
+  /// Serializes this Package to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of Package
   /// with the given fields replaced by the non-null parameter values.
@@ -166,7 +173,7 @@ class __$$PackageImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$PackageImpl extends _Package {
   const _$PackageImpl(
       {required this.id,
@@ -175,6 +182,9 @@ class _$PackageImpl extends _Package {
       required this.origin,
       this.config})
       : super._();
+
+  factory _$PackageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PackageImplFromJson(json);
 
   @override
   final String id;
@@ -199,6 +209,7 @@ class _$PackageImpl extends _Package {
             (identical(other.config, config) || other.config == config));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, name, commit, origin, config);
@@ -210,6 +221,13 @@ class _$PackageImpl extends _Package {
   @pragma('vm:prefer-inline')
   _$$PackageImplCopyWith<_$PackageImpl> get copyWith =>
       __$$PackageImplCopyWithImpl<_$PackageImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PackageImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Package extends Package {
@@ -220,6 +238,8 @@ abstract class _Package extends Package {
       required final String origin,
       final PackageConfig? config}) = _$PackageImpl;
   const _Package._() : super._();
+
+  factory _Package.fromJson(Map<String, dynamic> json) = _$PackageImpl.fromJson;
 
   @override
   String get id;

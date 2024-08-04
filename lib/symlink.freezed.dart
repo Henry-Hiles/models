@@ -14,10 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+Symlink _$SymlinkFromJson(Map<String, dynamic> json) {
+  return _Symlink.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Symlink {
   String get source => throw _privateConstructorUsedError;
   bool get readOnly => throw _privateConstructorUsedError;
+
+  /// Serializes this Symlink to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of Symlink
   /// with the given fields replaced by the non-null parameter values.
@@ -104,9 +111,12 @@ class __$$SymlinkImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$SymlinkImpl implements _Symlink {
   const _$SymlinkImpl({required this.source, this.readOnly = false});
+
+  factory _$SymlinkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SymlinkImplFromJson(json);
 
   @override
   final String source;
@@ -129,6 +139,7 @@ class _$SymlinkImpl implements _Symlink {
                 other.readOnly == readOnly));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, source, readOnly);
 
@@ -139,11 +150,20 @@ class _$SymlinkImpl implements _Symlink {
   @pragma('vm:prefer-inline')
   _$$SymlinkImplCopyWith<_$SymlinkImpl> get copyWith =>
       __$$SymlinkImplCopyWithImpl<_$SymlinkImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SymlinkImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Symlink implements Symlink {
   const factory _Symlink({required final String source, final bool readOnly}) =
       _$SymlinkImpl;
+
+  factory _Symlink.fromJson(Map<String, dynamic> json) = _$SymlinkImpl.fromJson;
 
   @override
   String get source;
