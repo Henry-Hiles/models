@@ -188,11 +188,6 @@ class _$PackageImpl extends _Package {
   final PackageConfig? config;
 
   @override
-  String toString() {
-    return 'Package(id: $id, name: $name, commit: $commit, origin: $origin, config: $config)';
-  }
-
-  @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
