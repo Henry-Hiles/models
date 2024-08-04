@@ -16,4 +16,8 @@ class Package with _$Package {
   Package withCommit(String commit) => copyWith(commit: commit);
 
   Package withConfig(String commit) => copyWith(commit: commit);
+
+  @override
+  String toString() =>
+      'Package(id: "$id", name: "$name", commit: "$commit", origin: "$origin")';
 }
