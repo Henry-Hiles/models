@@ -5,7 +5,6 @@ part 'package.g.dart';
 
 @freezed
 class Package with _$Package {
-  const Package._();
   const factory Package({
     required String id,
     required String name,
@@ -13,13 +12,6 @@ class Package with _$Package {
     required String origin,
     PackageConfig? config,
   }) = _Package;
-
-  Package withCommit(String commit) => copyWith(commit: commit);
-  Package withConfig(String commit) => copyWith(commit: commit); // TODO
-
-  @override
-  String toString() =>
-      'Package(id:"$id",name:"$name",commit:"$commit",origin:"$origin")';
 
   factory Package.fromJson(Map<String, Object?> json) =>
       _$PackageFromJson(json);

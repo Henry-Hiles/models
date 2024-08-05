@@ -174,14 +174,13 @@ class __$$PackageImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PackageImpl extends _Package {
+class _$PackageImpl implements _Package {
   const _$PackageImpl(
       {required this.id,
       required this.name,
       required this.commit,
       required this.origin,
-      this.config})
-      : super._();
+      this.config});
 
   factory _$PackageImpl.fromJson(Map<String, dynamic> json) =>
       _$$PackageImplFromJson(json);
@@ -196,6 +195,11 @@ class _$PackageImpl extends _Package {
   final String origin;
   @override
   final PackageConfig? config;
+
+  @override
+  String toString() {
+    return 'Package(id: $id, name: $name, commit: $commit, origin: $origin, config: $config)';
+  }
 
   @override
   bool operator ==(Object other) {
@@ -230,14 +234,13 @@ class _$PackageImpl extends _Package {
   }
 }
 
-abstract class _Package extends Package {
+abstract class _Package implements Package {
   const factory _Package(
       {required final String id,
       required final String name,
       required final String commit,
       required final String origin,
       final PackageConfig? config}) = _$PackageImpl;
-  const _Package._() : super._();
 
   factory _Package.fromJson(Map<String, dynamic> json) = _$PackageImpl.fromJson;
 

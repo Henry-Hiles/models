@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/package.dart';
 part "config.freezed.dart";
